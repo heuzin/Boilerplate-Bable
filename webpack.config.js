@@ -1,15 +1,15 @@
 const path = require('path')
 
 module.exports = {
-    entry: './src/index.js',
+    entry: ['babel-polyfill', './src/index.js'],
     output: {
         path: path.resolve(__dirname, 'public/scripts'),
         filename: 'bundle.js'
     },
-    module:{
+    module: {
         rules: [{
             test: /\.js$/,
-            exclude: /node-modules/,
+            exclude: /node_modules/,
             use: {
                 loader: 'babel-loader',
                 options: {
@@ -24,4 +24,3 @@ module.exports = {
     },
     devtool: 'source-map'
 }
-
